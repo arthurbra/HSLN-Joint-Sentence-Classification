@@ -4,6 +4,9 @@ Contains some minor code changes for training and classifying.
 
 In order to convert the word2vec embeddings to text format (see below), I have used the following tool: https://github.com/marekrei/convertvec
 
+The word2vec embeddings have to be located in a subfolder embeddings:
+embeddings\word2vec\wikipedia-pubmed-and-PMC-w2v.txt
+
 
 ------------------------------------------------
 
