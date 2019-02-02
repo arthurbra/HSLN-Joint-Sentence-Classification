@@ -1,3 +1,8 @@
+# Changes to original branch
+
+Contains some minor code changes for training and classifying
+
+
 # HSLN-Joint-Sentence-Classification
 This is the source code for the paper that will be at EMNLP 2018: [Jin, Di, and Peter Szolovits. "Hierarchical Neural Networks for Sequential Sentence Classification in Medical Scientific Abstracts." arXiv preprint arXiv:1808.06161 (2018)](https://arxiv.org/abs/1808.06161).
 
