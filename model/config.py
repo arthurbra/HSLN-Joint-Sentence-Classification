@@ -4,9 +4,8 @@ from .general_utils import get_logger
 from .data_utils import get_trimmed_wordvec_vectors, load_vocab, \
         get_processing_word
 
-
 class Config():
-    def __init__(self, parser, load=True):
+    def __init__(self, parser, load=True, log_config = True, dataset = None):
         """Initialize hyperparameters and load vocabs
 
         Args:
@@ -94,6 +93,9 @@ class Config():
 
         self.parser.parse_args(namespace=self)
 
+        if dataset is not None:
+            self.dataset_name = dataset
+
         self.filename_wordvec = os.path.join('embeddings',
                                             self.filename_wordvec)
         self.dir_output = os.path.join('results', self.dir_output)
@@ -137,9 +139,10 @@ class Config():
         self.logger = get_logger(self.path_log)
 
         # log the attributes
-        msg = ', '.join(['{}: {}'.format(attr, getattr(self, attr)) for attr in dir(self) \
+        if log_config:
+            msg = ', '.join(['{}: {}'.format(attr, getattr(self, attr)) for attr in dir(self) \
                         if not callable(getattr(self, attr)) and not attr.startswith("__")])
-        self.logger.info(msg)
+            self.logger.info(msg)
 
         # load if requested (default)
         if load:
