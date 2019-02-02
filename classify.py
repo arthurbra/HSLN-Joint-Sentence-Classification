@@ -20,7 +20,7 @@ def main():
         '''
 
     abstract_sentences = split_to_sentences(abstract)
-    predicted_labels = predict(model_weights, abstract_sentences)
+    predicted_labels = predict(model_weights, dataset, abstract_sentences)
 
     print()
     print("predicted classes")
@@ -35,18 +35,15 @@ def split_to_sentences(text):
             sentences += [l]
     return sentences 
 
-def predict(weights_path, abstract_sentences):
+def predict(weights_path, dataset, abstract_sentences):
 
-    sys.argv.extend(['--dataset_name', "nicta"])
     parser = argparse.ArgumentParser()
-
-    config = Config(parser)
+    config = Config(parser, log_config=False, dataset = dataset)
 
     # restore model weights
     model = HANNModel(config)
     model.build()
-    model.restore_session("results/test/model.weights") 
-
+    model.restore_session(weights_path) 
 
     sentences_words = []
     # split abstract to sentences
