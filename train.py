@@ -30,6 +30,7 @@ def main():
     # evaluate model
     model.restore_session(config.dir_model)
     metrics = model.evaluate(test)
+    model.save_session()
 
     with open(os.path.join(config.dir_output, 'test_results.txt'), 'a') as file:
         file.write('{}\n'.format(metrics['classification-report']))

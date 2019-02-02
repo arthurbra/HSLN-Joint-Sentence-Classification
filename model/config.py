@@ -45,9 +45,9 @@ class Config():
                     help='the name of dataset to use')
         parser.add_argument('--dir_output', default='test', type=str,
                     help='directory for output')
-        parser.add_argument('--filename_wordvec_trimmed', default='word2vec_pubmed.trimmed.txt', 
+        parser.add_argument('--filename_wordvec_trimmed', default='word2vec_pubmed.trimmed.txt',
                     type=str, help='directory for trimmed word embeddings file')
-        parser.add_argument('--filename_wordvec', default='word2vec/wikipedia-pubmed-and-PMC-w2v.txt', 
+        parser.add_argument('--filename_wordvec', default='word2vec/wikipedia-pubmed-and-PMC-w2v.txt',
                     type=str, help='directory for original word embeddings file')
 
         # model hyperparameters
@@ -94,7 +94,7 @@ class Config():
 
         self.parser.parse_args(namespace=self)
 
-        self.filename_wordvec = os.path.join('/DIR/OF/EMBEDDINGS', 
+        self.filename_wordvec = os.path.join('/mnt/c/Source/HSLN-Joint-Sentence-Classification-master/embeddings',
                                             self.filename_wordvec)
         self.dir_output = os.path.join('results', self.dir_output)
         self.dir_model  = os.path.join(self.dir_output, "model.weights")
