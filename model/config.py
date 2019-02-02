@@ -5,7 +5,7 @@ from .data_utils import get_trimmed_wordvec_vectors, load_vocab, \
         get_processing_word
 
 class Config():
-    def __init__(self, parser, load=True, log_config = True, dataset = None):
+    def __init__(self, parser, load=True, log_config = True, dataset = None, args = None):
         """Initialize hyperparameters and load vocabs
 
         Args:
@@ -91,7 +91,7 @@ class Config():
         parser.add_argument('--use_gru', action='store_true', 
                     help='whether gru instead of lstm')
 
-        self.parser.parse_args(namespace=self)
+        self.parser.parse_args(namespace=self, args=args)
 
         if dataset is not None:
             self.dataset_name = dataset
