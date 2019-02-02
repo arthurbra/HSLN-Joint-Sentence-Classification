@@ -94,7 +94,7 @@ class Config():
 
         self.parser.parse_args(namespace=self)
 
-        self.filename_wordvec = os.path.join('/mnt/c/Source/HSLN-Joint-Sentence-Classification-master/embeddings',
+        self.filename_wordvec = os.path.join('embeddings',
                                             self.filename_wordvec)
         self.dir_output = os.path.join('results', self.dir_output)
         self.dir_model  = os.path.join(self.dir_output, "model.weights")
